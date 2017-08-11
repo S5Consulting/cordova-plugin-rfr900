@@ -52,13 +52,9 @@ public class rfr900 extends CordovaPlugin {
 
     public Handler mRFConfigHandler = new Handler() {
         public void handleMessage(Message m) {
-            switch (m.what) {
-                case SDConsts.Msg.SDMsg:
-                    PluginResult pluginResult = null;
-                    pluginResult = new PluginResult(PluginResult.Status.OK, "in handle message");
-                    _eventCallback.sendPluginResult(pluginResult);
-                    break;
-            }
+            PluginResult pluginResult = null;
+            pluginResult = new PluginResult(PluginResult.Status.OK, "in handle message: " + m.what);
+            _eventCallback.sendPluginResult(pluginResult);
         }
     };
 }

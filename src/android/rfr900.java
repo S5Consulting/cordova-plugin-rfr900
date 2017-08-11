@@ -20,7 +20,8 @@ import android.widget.EditText;
 import android.os.Handler;
 import android.os.Message;
 import co.kr.bluebird.ser.protocol.Reader;
-
+import co.kr.bluebird.ser.protocol.SDConsts;
+import co.kr.bluebird.ser.protocol.*;
 
 public class rfr900 extends CordovaPlugin {
     private CallbackContext _eventCallback;
@@ -35,12 +36,10 @@ public class rfr900 extends CordovaPlugin {
             mReader = Reader.getReader(this.cordova.getActivity().getApplicationContext(), mRFConfigHandler);            
             //int ret = mReader.SD_Connect();           
             
-            int ret = mReader.SD_Connect();
-            PluginResult pluginResult = null;
-            
-            pluginResult = new PluginResult(PluginResult.Status.OK, "HELLO: " + ret);
-            
-            _eventCallback.sendPluginResult(pluginResult);
+            int ret = mReader.SD_Wakeup();
+            //PluginResult pluginResult = null;            
+            //pluginResult = new PluginResult(PluginResult.Status.OK, "HELLO: " + ret);            
+            //_eventCallback.sendPluginResult(pluginResult);
             
             return true;     
         } else {
@@ -53,7 +52,13 @@ public class rfr900 extends CordovaPlugin {
 
     public Handler mRFConfigHandler = new Handler() {
         public void handleMessage(Message m) {
-                     
+            switch (m.what) {
+                case SDConsts.Msg.SDMsg:
+                    PluginResult pluginResult = null;
+                    pluginResult = new PluginResult(PluginResult.Status.OK, "in handle message");
+                    _eventCallback.sendPluginResult(pluginResult);
+                    break;
+            }
         }
     };
 }

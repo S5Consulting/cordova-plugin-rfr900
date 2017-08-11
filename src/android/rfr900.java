@@ -28,10 +28,7 @@ public class rfr900 extends CordovaPlugin {
 
     public Handler mRFConfigHandler = new Handler() {
         public void handleMessage(Message m) {
-            PluginResult pluginResult = null;
-            pluginResult = new PluginResult(PluginResult.Status.OK, "From message handler");
-            _eventCallback.sendPluginResult(pluginResult);
-            return true;                
+                     
         }
     };
 

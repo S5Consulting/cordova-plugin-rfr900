@@ -37,7 +37,7 @@ public class rfr900 extends CordovaPlugin {
                     _eventCallback.sendPluginResult(pluginResult);
                     return true;                
                 }
-            }
+            };
 
             mReader = Reader.getReader(this, mRFConfigHandler);
             ret = mReader.SD_Connect();           

@@ -36,10 +36,10 @@ public class rfr900 extends CordovaPlugin {
             mReader = Reader.getReader(this.cordova.getActivity().getApplicationContext(), mRFConfigHandler);            
             //int ret = mReader.SD_Connect();           
             
-            int ret = mReader.SD_Wakeup();
-            //PluginResult pluginResult = null;            
-            //pluginResult = new PluginResult(PluginResult.Status.OK, "HELLO: " + ret);            
-            //_eventCallback.sendPluginResult(pluginResult);
+            int ret = mReader.SD_Connect();
+            PluginResult pluginResult = null;            
+            pluginResult = new PluginResult(PluginResult.Status.OK, "HELLO: " + ret);            
+            _eventCallback.sendPluginResult(pluginResult);
             
             return true;     
         } else {

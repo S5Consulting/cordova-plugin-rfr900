@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.os.Handler;
+import android.os.Message;
 import co.kr.bluebird.ser.protocol.Reader;
 
 

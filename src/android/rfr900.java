@@ -23,7 +23,6 @@ import co.kr.bluebird.ser.protocol.Reader;
 
 public class rfr900 extends CordovaPlugin {
     private CallbackContext _eventCallback;
-    private Handler mRFHandler;
     private Reader mReader;
 
     @Override
@@ -31,14 +30,6 @@ public class rfr900 extends CordovaPlugin {
         _eventCallback = callbackContext;
 
         if (actions.equals("connect")) {
-            mRFConfigHandler = new Handler() {
-                public void handleMessage(Message m) {
-                    PluginResult pluginResult = null;
-                    pluginResult = new PluginResult(PluginResult.Status.OK, "From message handler");
-                    _eventCallback.sendPluginResult(pluginResult);
-                    return true;                
-                }
-            };
 
             mReader = Reader.getReader(this, mRFConfigHandler);
             ret = mReader.SD_Connect();           
@@ -54,3 +45,12 @@ public class rfr900 extends CordovaPlugin {
         }
     }
 }
+
+public Handler mRFConfigHandler = new Handler() {
+    public void handleMessage(Message m) {
+        PluginResult pluginResult = null;
+        pluginResult = new PluginResult(PluginResult.Status.OK, "From message handler");
+        _eventCallback.sendPluginResult(pluginResult);
+        return true;                
+    }
+};

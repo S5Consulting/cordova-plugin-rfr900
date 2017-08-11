@@ -21,16 +21,12 @@ import android.widget.EditText;
 
 public class rfr900 extends CordovaPlugin {
     private CallbackContext _eventCallback;
-    private Exception _exception;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         PluginResult pluginResult = null;
-        _exception = null;
-        _eventCallback = callbackContext;
-
-        pluginResult = new PluginResult(PluginResult.Status.OK, "START");
-        _eventCallback.sendPluginResult(pluginResult);
+        pluginResult = new PluginResult(PluginResult.Status.OK, "HELLO WORLD");
+        callbackContext.sendPluginResult(pluginResult);
         return true;
     }
 }

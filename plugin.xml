@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.s5.plugins"
+        version="0.7.0">
+
+  <name>Hello</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/rfr900.js" target="js/rfr900.js"/>
+
+  <js-module src="www/rfr900.js" name="rfr900">
+    <clobbers target="rfr900" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="rfr900">
+        <param name="android-package" value="com.s5.plugins.rfr900"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/rfr900.java" target-dir="src/com/s5/plugins/"/>
+    <source-file src="src/android/libs/bluebird-sled.jar" target-dir="libs" />
+  </platform>
+</plugin>
+
+
+

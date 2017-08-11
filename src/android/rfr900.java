@@ -26,23 +26,22 @@ public class rfr900 extends CordovaPlugin {
     private CallbackContext _eventCallback;
     private Reader mReader;
 
-    public Handler mRFConfigHandler = new Handler() {
-        public void handleMessage(Message m) {
-                     
-        }
-    };
-
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         _eventCallback = callbackContext;
 
         if (action.equals("connect")) {
 
-            mReader = Reader.getReader(this.cordova.getActivity().getApplicationContext(), mRFConfigHandler);
-            int ret = mReader.SD_Connect();           
+            mReader = Reader.getReader(this.cordova.getActivity().getApplicationContext(), mRFConfigHandler);            
+            //int ret = mReader.SD_Connect();           
+            
+            int ret = mReader.SD_Wakeup();
             PluginResult pluginResult = null;
+            
             pluginResult = new PluginResult(PluginResult.Status.OK, "HELLO: " + ret);
+            
             _eventCallback.sendPluginResult(pluginResult);
+            
             return true;     
         } else {
             PluginResult pluginResult = null;
@@ -51,5 +50,11 @@ public class rfr900 extends CordovaPlugin {
             return true;            
         }
     }
+
+    public Handler mRFConfigHandler = new Handler() {
+        public void handleMessage(Message m) {
+                     
+        }
+    };
 }
 

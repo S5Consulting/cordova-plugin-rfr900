@@ -25,6 +25,15 @@ public class rfr900 extends CordovaPlugin {
     private CallbackContext _eventCallback;
     private Reader mReader;
 
+    public Handler mRFConfigHandler = new Handler() {
+        public void handleMessage(Message m) {
+            PluginResult pluginResult = null;
+            pluginResult = new PluginResult(PluginResult.Status.OK, "From message handler");
+            _eventCallback.sendPluginResult(pluginResult);
+            return true;                
+        }
+    };
+
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         _eventCallback = callbackContext;
@@ -46,11 +55,3 @@ public class rfr900 extends CordovaPlugin {
     }
 }
 
-public Handler mRFConfigHandler = new Handler() {
-    public void handleMessage(Message m) {
-        PluginResult pluginResult = null;
-        pluginResult = new PluginResult(PluginResult.Status.OK, "From message handler");
-        _eventCallback.sendPluginResult(pluginResult);
-        return true;                
-    }
-};

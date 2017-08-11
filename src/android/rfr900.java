@@ -36,7 +36,7 @@ public class rfr900 extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         _eventCallback = callbackContext;
 
-        if (actions.equals("connect")) {
+        if (action.equals("connect")) {
 
             mReader = Reader.getReader(this, mRFConfigHandler);
             ret = mReader.SD_Connect();           

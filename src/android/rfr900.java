@@ -32,22 +32,5 @@ public class rfr900 extends CordovaPlugin {
         pluginResult = new PluginResult(PluginResult.Status.OK, "START");
         _eventCallback.sendPluginResult(pluginResult);
         return true;
-        
-        if (action.equals("test")) {
-
-            if (true) {
-                pluginResult = new PluginResult(PluginResult.Status.OK, "OPEN");
-                _eventCallback.sendPluginResult(pluginResult);
-                return true;
-            } else {
-                pluginResult = new PluginResult(PluginResult.Status.ERROR, _exception.getMessage());
-                _eventCallback.sendPluginResult(pluginResult);
-                return false;
-            }
-        } else {
-            pluginResult = new PluginResult(PluginResult.Status.OK, "NOTHING");
-            _eventCallback.sendPluginResult(pluginResult);
-            return false;
-        }
     }
 }

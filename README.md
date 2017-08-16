@@ -7,4 +7,5 @@ function error(error) {
 }
 
 rfr900.connect(succes, error);
+
 rfr900.regReadCallback(success, error);

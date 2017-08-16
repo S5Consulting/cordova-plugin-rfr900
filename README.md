@@ -2,7 +2,7 @@ function success(data) {
   console.log(data);
 }
 
-funciton error(error) {
+function error(error) {
   console.log(error);
 }
 
